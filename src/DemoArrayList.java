@@ -3,27 +3,31 @@ import java.util.ArrayList;
 public class DemoArrayList 
 {
 	public static void main(String[] args){
-		ArrayList<Pays> LesPays = new ArrayList<Pays>();
+		MyArrayList<Pays> LesPays = new MyArrayList<Pays>();
 		
 		Pays France = new Pays("France");
-		LesPays.add(France);
+		LesPays.ajouter(France);
 		
 		Pays Allemagne = new Pays("Allemagne");
-		LesPays.add(Allemagne);
+		LesPays.ajouter(Allemagne);
 		
 		Pays USA = new Pays("Etats-Unis");
-		LesPays.add(USA);
+		LesPays.ajouter(USA);
 		
 		Pays Chine = new Pays("Chine");
-		LesPays.add(Chine);
+		LesPays.ajouter(Chine);
 		
 		int nbPays = LesPays.size();
 		
-		System.out.println("La collection contient " + LesPays.size() + " pays");
+		System.out.println("La collection contient " + LesPays.taille() + " pays");
 		for(int i=0; i<nbPays; i++) {
-			System.out.println(LesPays.get(i).getNom());
+			afficher(LesPays.get(i));
 		}
-		
-		LesPays.get(1).setNom("Russie");
+
 	}
+	
+	public static void afficher(Object object) {
+		System.out.println(((Pays) object).getNom());
+	}
+	
 }
